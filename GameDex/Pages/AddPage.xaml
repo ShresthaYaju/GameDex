@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GameDex.Pages.AddPage"
+             Title="AddPage"
+             BackgroundColor="#00001a">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="60, 100, 50, 50" ColumnSpacing="10" 
+                RowSpacing="10"
+                Margin="50, 20, 50, 20">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <Rectangle
+            Grid.Column="0"
+            Grid.Row="2" />
+
+            <Rectangle
+            Grid.Column="0"
+            Grid.Row="3" />
+
+            <Border
+                Stroke="Gray"
+            Grid.Column="1"
+            Grid.Row="0"
+             />
+            <Entry
+                Grid.Row="0" Grid.Column="1"
+                x:Name="titleEntry"/>
+
+
+            <Border
+                Stroke="Gray"
+            Grid.Column="1"
+            Grid.Row="1"
+             />
+            <Entry
+                Grid.Row="1" Grid.Column="1"
+                x:Name="descriptionEntry"/>
+
+
+            <Border
+                Stroke="Gray"
+            Grid.Column="1"
+            Grid.Row="2"
+             />
+            <Entry
+                Grid.Row="1" Grid.Column="3"
+                x:Name="tagsEntry"/>
+
+
+            <Border
+                Stroke="Gray"
+            Grid.Column="1"
+            Grid.Row="3"
+             />
+            
+            <Entry
+                Grid.Row="3" Grid.Column="1"
+                x:Name="platformEntry" />
+
+            <Label Text="Add Title: " HorizontalOptions="Center" VerticalOptions="Start"
+            />
+
+            <Editor Grid.Column="1" />
+
+            <Label Grid.Row="1"
+           Text="Description: " HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <Editor Grid.Column="1"
+           Grid.Row="1" />
+
+            <Label Grid.Row="2"
+           Text="Tags: " HorizontalOptions="Center" VerticalOptions="Start" />
+
+            <Editor Grid.Column="1"
+           Grid.Row="2"
+           />
+
+            <Label Grid.Row="3"
+           Text="Platform: " HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <Editor Grid.Column="1"
+           Grid.Row="3"
+            />
+
+        </Grid>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="100">
+
+            <Button
+                Text='Upload Art'
+                x:Name="uploadartbutton"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="Black"
+                />
+
+            <RadioButton
+                x:Name="likeSwitch"
+                
+                />
+
+            <RadioButton 
+                x:Name='heartSwitch'
+                />
+            <HorizontalStackLayout>
+                <Label Text="Played?" VerticalOptions="Center"/>
+                <CheckBox x:Name="playedSwitch"/>
+
+            </HorizontalStackLayout>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout                         HorizontalOptions="Center" Spacing="100"
+>
+            <Button
+                Text="Cancel"
+                x:Name="cancelbutton"
+                TextColor="White"
+                BackgroundColor ="Red"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" 
+                Clicked="clCancel"
+                />
+            <Entry
+                Placeholder="Image URL"
+                x:Name="imageEntry" />
+
+            <Button 
+                Text="Add"
+                x:Name="addbutton"
+                TextColor="White"
+                BackgroundColor="Green"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="clAdd"
+                />
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

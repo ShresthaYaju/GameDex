@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GameDex"
+             x:Class="GameDex.Pages.LandingPage"
+             Title="LandingPage"
+             BackgroundColor="#00001a">
+
+    <Grid
+        RowDefinitions="75, 4*, 2*"
+        ColumnDefinitions="2*, 3*, 250, 3*, 2*"
+        ColumnSpacing="10"
+        RowSpacing="10"
+        Margin="50, 20, 50, 20">
+
+        <!-- Tab Bar -->
+        
+        <HorizontalStackLayout
+            Grid.Row="0" Grid.Column="1">
+            <Label
+                Text="Sort: "
+                TextColor="White" 
+                FontSize="30"
+                VerticalTextAlignment="Center"
+                Padding="10"/>
+            <Picker
+                VerticalOptions="Center" VerticalTextAlignment="Center"
+                HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                SelectedIndexChanged="OnSelectedIndexChanged"
+                >
+                <Picker.Items>
+                    <x:String>Title</x:String>
+
+                    <x:String>Tags</x:String>
+
+                    <x:String>Heart</x:String>
+                </Picker.Items>
+            </Picker>
+        </HorizontalStackLayout>
+        
+        <Label
+            Grid.Row="0" Grid.Column="2"
+            Text="GameDex"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            FontSize="35"/>
+        <Button
+            Text="+"
+            Clicked="ShowAddPage"
+            Grid.Row="0" Grid.Column="4"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+
+
+        <!-- Game View -->
+        
+        <Rectangle
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="10"
+            BackgroundColor="#1f1f2e" />
+
+        <CollectionView x:Name="clnGameView"
+                        Grid.Row="1" Grid.Column="0"
+                        Grid.ColumnSpan="10"
+                        ItemsLayout="HorizontalList"
+                        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid
+                        RowDefinitions="70, *, *, *, 30"
+                        ColumnDefinitions="50, 50"
+                        Margin="10"
+                        BackgroundColor="Black">
+                        
+                        <Image  Source="{Binding Image}"
+                               Grid.Row="0" Grid.Column="0"
+                                Grid.ColumnSpan="2"/>
+
+                        
+
+                        <Label
+                            Grid.Row="1" Grid.Column="1"
+                            Grid.RowSpan="3"
+                            Text="{Binding Title}"
+                            Rotation="90"
+                            VerticalTextAlignment="Center"
+                            FontSize="20"/>
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Grid.Row="5" Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Text="{Binding Platform}"
+                            FontSize="20" />
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <!-- Info Bar -->
+
+        <Rectangle
+            Grid.Column="0"
+            Grid.Row="2"
+            Grid.ColumnSpan="10"
+            BackgroundColor="#333399" />
+
+        <Grid
+           Grid.Row="2" Grid.Column="0"
+            Grid.ColumnSpan="10"
+            RowDefinitions="3*, 3*, 3*"
+            ColumnDefinitions="3*, 6*, 3*, 6*, 3*, 3*"
+            >
+
+            <Entry
+                Grid.Row="0" Grid.Column="0"
+                Grid.ColumnSpan="4"
+                x:Name="titleEntry"
+                FontSize="30"
+                Margin="10"
+                Placeholder="Title"/>
+
+            <HorizontalStackLayout
+                Grid.Row="0" Grid.Column="4">
+                <Label
+                    Text="Liked"
+                    VerticalTextAlignment="Center"
+                    Padding="10"/>
+                <Switch
+                    IsToggled="false"
+                    x:Name="likeSwitch"/>
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout
+                Grid.Row="0" Grid.Column="5">
+                <Label
+                    Text="Heart"
+                    VerticalTextAlignment="Center"
+                    Padding="10"/>
+                <Switch
+                    IsToggled="false"
+                    x:Name="heartSwitch"/>
+
+            </HorizontalStackLayout>
+            
+            <Label
+                Grid.Row="1" Grid.Column="0"
+                FontSize="20"
+                Padding="5"
+                Text="Description:" />
+            <Button
+                Grid.Row="2" Grid.Column="0"
+                Text="Save"
+                Margin="10"
+                Clicked="SaveItem_Clicked" />
+            <Entry
+                Grid.Row="1" Grid.Column="1"
+                Grid.RowSpan="2"
+                Margin="10"
+                x:Name="descriptionEntry"/>
+            <Label
+                Grid.Row="1" Grid.Column="2"
+                Padding="10"
+                FontSize="20"
+                Text="Tags:" />
+            <Entry
+                Grid.Row="1" Grid.Column="3"
+                x:Name="tagsEntry"
+                Margin="10"
+                Placeholder="Tag 1, Tag 2, Tag 2, ..."/>
+            <Label
+                Grid.Row="2" Grid.Column="2"
+                FontSize="20"
+                Padding="10"
+                Text="Platform:" />
+            <Entry
+                Grid.Row="2" Grid.Column="3"
+                Margin="10"
+                x:Name="platformEntry" />
+            <Entry
+                Grid.Row="1" Grid.Column="4"
+                Grid.ColumnSpan="2"
+                Placeholder="Image URL"
+                Margin="10"
+                x:Name="imageEntry" />
+            <HorizontalStackLayout
+                Grid.Row="2" Grid.Column="4">
+                <Label
+                    Text="Played?"
+                    VerticalTextAlignment="Center"
+                    Padding="10"/>
+                <Switch
+                    IsToggled="false"
+                    x:Name="playedSwitch"/>
+
+            </HorizontalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+    <!--form stars here-->
+  
+</ContentPage>
